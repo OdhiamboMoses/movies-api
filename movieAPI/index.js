@@ -7,6 +7,7 @@ const searchBtn = document.getElementById("search-btn");
 
 searchBtn.addEventListener("click", function () {
   let searchValue = inputText.value;
+  display.innerHTML = "";
   const request = fetch(
     `${BASE_URL}/search/movie?query=${searchValue}&api_key=${API_KEY}`
   );
@@ -54,6 +55,7 @@ searchBtn.addEventListener("click", function () {
 inputText.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     let searchValue = inputText.value;
+    display.innerHTML = "";
     const request = fetch(
       `${BASE_URL}/search/movie?query=${searchValue}&api_key=${API_KEY}`
     );
