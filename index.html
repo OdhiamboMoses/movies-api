@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hidden Text Parsing Exercise</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <p>Visible paragraph with some text.</p>
+      <p class="hidden">
+        This is <span>hidden</span> text. Important: Remember to
+        <span>check</span> the <b>system</b>.
+      </p>
+      <p class="hidden">Another hidden message: Important: Meeting at 3 PM.</p>
+    </div>
+    <button id="findContent">Find Important Content</button>
+    <div id="display"></div>
+    <script>
+      const button = document.querySelector("#findContent");
+      const display = document.getElementById("display");
+      const paragraphs = document.querySelectorAll("p");
+
+      button.addEventListener("click", function () {
+        // Add code here...
+        for (let paragraph of paragraphs) {
+          const text = paragraph.textContent;
+          if (text.includes("Important")) {
+            const message = text.slice(text.indexOf("Important"));
+            console.log(message);
+            display.innerHTML += `${message} <br> `;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
